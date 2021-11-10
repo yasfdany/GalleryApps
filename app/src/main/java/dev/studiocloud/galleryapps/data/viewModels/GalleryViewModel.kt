@@ -16,11 +16,6 @@ class GalleryViewModel : ViewModel() {
     private val galleryData : MutableLiveData<MutableList<GalleryItem>?> = MutableLiveData()
     val searchResult : MutableLiveData<MutableList<GalleryItem>?> = MutableLiveData()
 
-    fun getGalleries(searchQuery: String?): MutableLiveData<MutableList<GalleryItem>?> {
-        getNetworkPlaces(searchQuery);
-        return searchResult
-    }
-
     private fun searchGallery(searchQuery: String?){
         val places: MutableList<GalleryItem> = mutableListOf()
 
@@ -36,7 +31,7 @@ class GalleryViewModel : ViewModel() {
         }
     }
 
-    private fun getNetworkPlaces(searchQuery: String?){
+    fun getGallery(searchQuery: String?){
         val galleries: MutableList<GalleryItem> = mutableListOf()
         val client: ApiService? = ApiClient().get()
 

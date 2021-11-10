@@ -17,11 +17,6 @@ class PlaceViewModel : ViewModel() {
     private val placeData : MutableLiveData<MutableList<PlaceItem>?> = MutableLiveData()
     val searchResult : MutableLiveData<MutableList<PlaceItem>?> = MutableLiveData()
 
-    fun getPlaces(searchQuery: String?): MutableLiveData<MutableList<PlaceItem>?> {
-        getNetworkPlaces(searchQuery);
-        return searchResult
-    }
-
     private fun searchPlace(searchQuery: String?){
         val places: MutableList<PlaceItem> = mutableListOf()
 
@@ -37,7 +32,7 @@ class PlaceViewModel : ViewModel() {
         }
     }
 
-    private fun getNetworkPlaces(searchQuery: String?){
+    fun getPlaces(searchQuery: String?){
         val places: MutableList<PlaceItem> = mutableListOf()
         val client: ApiService? = ApiClient().get()
 

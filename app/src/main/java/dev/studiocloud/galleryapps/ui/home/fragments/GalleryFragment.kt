@@ -13,7 +13,6 @@ import dev.studiocloud.galleryapps.data.services.responses.GalleryItem
 import dev.studiocloud.galleryapps.data.viewModels.GalleryViewModel
 import dev.studiocloud.galleryapps.ui.home.adapters.GalleryAdapter
 import dev.studiocloud.galleryapps.ui.home.adapters.OnClickGalleryListener
-import dev.studiocloud.galleryapps.utils.RecyclerViewPaddingDecoration
 import kotlinx.android.synthetic.main.gallery_fragment.view.*
 
 class GalleryFragment : Fragment() {
@@ -47,7 +46,7 @@ class GalleryFragment : Fragment() {
         })
 
         view.etSearchGallery.addTextChangedListener {
-            galleryViewModel.getGalleries(if (it.toString().isNotEmpty()) it.toString() else null)
+            galleryViewModel.getGallery(if (it.toString().isNotEmpty()) it.toString() else null)
         }
 
         return view

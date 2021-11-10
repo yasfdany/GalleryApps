@@ -1,13 +1,11 @@
 package dev.studiocloud.galleryapps.ui.home.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import dev.studiocloud.galleryapps.R
 import dev.studiocloud.galleryapps.data.viewModels.PlaceViewModel
@@ -16,7 +14,6 @@ import dev.studiocloud.galleryapps.data.services.responses.PlaceItem
 import dev.studiocloud.galleryapps.ui.home.adapters.OnClickPlaceListener
 import dev.studiocloud.galleryapps.ui.home.adapters.PlaceAdapter
 import dev.studiocloud.galleryapps.utils.RecyclerViewPaddingDecoration
-import kotlinx.android.synthetic.main.place_fragment.*
 import kotlinx.android.synthetic.main.place_fragment.view.*
 
 
