@@ -16,11 +16,11 @@ import kotlinx.android.synthetic.main.item_place.view.*
 
 
 interface OnClickPlaceListener{
-    fun OnClickPlace(place : PlaceItem)
+    fun onClickPlace(place : PlaceItem)
 }
 
 class PlaceAdapter(var context: Context, var data: MutableList<PlaceItem>) : RecyclerView.Adapter<PlaceAdapter.Holder>() {
-    var onClickListener : OnClickPlaceListener? = null;
+    private var onClickListener : OnClickPlaceListener? = null;
 
     fun setOnClickPlace(onClickListener : OnClickPlaceListener){
         this.onClickListener = onClickListener
@@ -37,14 +37,12 @@ class PlaceAdapter(var context: Context, var data: MutableList<PlaceItem>) : Rec
 
         Glide.with(context)
             .load(if(item.type.equals("image")) item.image else item.media?.first())
-            .centerCrop()
-            .apply(RequestOptions.bitmapTransform(RoundedCorners(24)))
             .into(holder.itemView.ivPlace)
 
         holder.itemView.tvTitle.text = item.title
         holder.itemView.tvContent.text = item.content
         holder.itemView.itemParentPlace.setOnClickListener {
-            onClickListener?.OnClickPlace(data[holder.absoluteAdapterPosition])
+            onClickListener?.onClickPlace(data[position])
         }
     }
 

@@ -11,7 +11,7 @@ data class GalleryResponse(
 	val statusCode: Int? = null,
 
 	@field:SerializedName("data")
-	val data: List<GalleryItem?>? = null,
+	val data: MutableList<GalleryItem>? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null

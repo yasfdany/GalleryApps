@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.navigation.NavigationBarView
 import dev.studiocloud.galleryapps.R
+import dev.studiocloud.galleryapps.data.viewModels.GalleryViewModel
 import dev.studiocloud.galleryapps.data.viewModels.PlaceViewModel
 import dev.studiocloud.galleryapps.ui.home.fragments.GalleryFragment
 import dev.studiocloud.galleryapps.ui.home.fragments.PlaceFragment
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var placeViewModel : PlaceViewModel
+    private lateinit var galleryViewModel : GalleryViewModel
     private val pages = listOf(
         PlaceFragment(),
         GalleryFragment(),
@@ -31,19 +33,25 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         placeViewModel = ViewModelProvider(this)[PlaceViewModel::class.java]
+        galleryViewModel = ViewModelProvider(this)[GalleryViewModel::class.java]
+
         placeViewModel.getPlaces(null)
+        galleryViewModel.getGalleries(null)
 
         bottomNavMain.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.place_nav -> {
+                    tvPageTitle.text = "Place"
                     vpHome.setCurrentItem(0,true)
                     return@setOnItemSelectedListener true
                 }
                 R.id.gallery_nav -> {
+                    tvPageTitle.text = "Gallery"
                     vpHome.setCurrentItem(1,true)
                     return@setOnItemSelectedListener true
                 }
                 R.id.profile_nav -> {
+                    tvPageTitle.text = "User"
                     vpHome.setCurrentItem(2,true)
                     return@setOnItemSelectedListener true
                 }
@@ -62,6 +70,11 @@ class HomeActivity : AppCompatActivity() {
 
             override fun onPageSelected(position: Int) {
                 bottomNavMain.menu.getItem(position).isChecked = true;
+                when(position){
+                    0 -> tvPageTitle.text = "Place"
+                    1 -> tvPageTitle.text = "Gallery"
+                    2 -> tvPageTitle.text = "User"
+                }
             }
 
             override fun onPageScrollStateChanged(state: Int) {

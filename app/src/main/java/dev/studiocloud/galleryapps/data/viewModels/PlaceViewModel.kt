@@ -14,7 +14,7 @@ import retrofit2.Response
 
 
 class PlaceViewModel : ViewModel() {
-    val placeData : MutableLiveData<MutableList<PlaceItem>?> = MutableLiveData()
+    private val placeData : MutableLiveData<MutableList<PlaceItem>?> = MutableLiveData()
     val searchResult : MutableLiveData<MutableList<PlaceItem>?> = MutableLiveData()
 
     fun getPlaces(searchQuery: String?): MutableLiveData<MutableList<PlaceItem>?> {

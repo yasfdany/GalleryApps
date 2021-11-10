@@ -39,7 +39,7 @@ class PlaceFragment : Fragment() {
 
         placeAdapter.setOnClickPlace(
             object : OnClickPlaceListener {
-                override fun OnClickPlace(place: PlaceItem) {
+                override fun onClickPlace(place: PlaceItem) {
 
                 }
             }
