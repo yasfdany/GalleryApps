@@ -7,16 +7,19 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.navigation.NavigationBarView
 import dev.studiocloud.galleryapps.R
+import dev.studiocloud.galleryapps.data.viewModels.PlaceViewModel
 import dev.studiocloud.galleryapps.ui.home.fragments.GalleryFragment
 import dev.studiocloud.galleryapps.ui.home.fragments.PlaceFragment
 import dev.studiocloud.galleryapps.ui.home.fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
+    private lateinit var placeViewModel : PlaceViewModel
     private val pages = listOf(
         PlaceFragment(),
         GalleryFragment(),
@@ -27,22 +30,9 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        vpHome.adapter = MainFragmentAdapter(supportFragmentManager,pages)
-        vpHome.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
-
-            override fun onPageSelected(position: Int) {
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-            }
-
-        })
+        placeViewModel = ViewModelProvider.AndroidViewModelFactory(application!!).create(
+            PlaceViewModel::class.java
+        )
 
         bottomNavMain.setOnItemSelectedListener {
             when(it.itemId){
@@ -61,6 +51,24 @@ class HomeActivity : AppCompatActivity() {
             }
             false
         }
+
+        vpHome.adapter = MainFragmentAdapter(supportFragmentManager,pages)
+        vpHome.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                bottomNavMain.menu.getItem(position).isChecked = true;
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+        })
     }
 }
 
