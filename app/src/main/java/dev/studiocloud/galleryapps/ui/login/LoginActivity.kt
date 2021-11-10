@@ -1,13 +1,18 @@
-package site.studiocloud.galleryapps.ui.login
+package dev.studiocloud.galleryapps.ui.login
 
+import android.app.AlertDialog
+import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.activity_login.*
-import site.studiocloud.galleryapps.R
+import dev.studiocloud.galleryapps.R
+import dev.studiocloud.galleryapps.ui.home.HomeActivity
+import java.util.*
+import kotlin.concurrent.schedule
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +30,25 @@ class LoginActivity : AppCompatActivity() {
 
             isButtonEnable(it.toString(),etPassword.text.toString())
         }
+
         etPassword.addTextChangedListener{
             isButtonEnable(etEmail.text.toString(),it.toString())
         }
+
+        btLogin.setOnClickListener {
+            var progressDialog = createDialog()
+            progressDialog.show()
+            Timer().schedule(3000){
+                progressDialog.dismiss()
+                startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
+            }
+        }
+    }
+
+    private fun createDialog(): Dialog {
+        var builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        builder.setView(R.layout.progress_layout)
+        return builder.create()
     }
 
     private fun isButtonEnable(email : String, password: String){

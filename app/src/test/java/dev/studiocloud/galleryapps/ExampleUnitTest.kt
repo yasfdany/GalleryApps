@@ -1,4 +1,4 @@
-package site.studiocloud.galleryapps
+package dev.studiocloud.galleryapps
 
 import org.junit.Test
 
