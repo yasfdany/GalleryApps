@@ -1,17 +1,13 @@
 package dev.studiocloud.galleryapps.ui.home.adapters
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import dev.studiocloud.galleryapps.data.services.responses.PlaceItem
-
-import android.view.LayoutInflater
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CenterInside
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import dev.studiocloud.galleryapps.R
+import dev.studiocloud.galleryapps.data.services.responses.PlaceItem
 import kotlinx.android.synthetic.main.item_place.view.*
 
 
@@ -19,8 +15,8 @@ interface OnClickPlaceListener{
     fun onClickPlace(place : PlaceItem)
 }
 
-class PlaceAdapter(var context: Context, var data: MutableList<PlaceItem>) : RecyclerView.Adapter<PlaceAdapter.Holder>() {
-    private var onClickListener : OnClickPlaceListener? = null;
+class PlaceAdapter(private var context: Context, var data: MutableList<PlaceItem>) : RecyclerView.Adapter<PlaceAdapter.Holder>() {
+    private var onClickListener : OnClickPlaceListener? = null
 
     fun setOnClickPlace(onClickListener : OnClickPlaceListener){
         this.onClickListener = onClickListener
@@ -51,8 +47,6 @@ class PlaceAdapter(var context: Context, var data: MutableList<PlaceItem>) : Rec
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-        }
     }
 
 }

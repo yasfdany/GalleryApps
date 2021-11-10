@@ -1,11 +1,8 @@
 package dev.studiocloud.galleryapps.data.viewModels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.gson.Gson
 import dev.studiocloud.galleryapps.data.services.ApiClient
-
 import dev.studiocloud.galleryapps.data.services.ApiService
 import dev.studiocloud.galleryapps.data.services.responses.ProfileResponse
 import dev.studiocloud.galleryapps.data.services.responses.User

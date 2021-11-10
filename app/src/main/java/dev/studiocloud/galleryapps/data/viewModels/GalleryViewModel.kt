@@ -21,7 +21,7 @@ class GalleryViewModel : ViewModel() {
 
         if(searchQuery != null){
             for (item : GalleryItem in galleryData.value!!){
-                if (item?.caption?.contains(searchQuery,true) == true){
+                if (item.caption?.contains(searchQuery,true) == true){
                     places.add(item)
                 }
             }

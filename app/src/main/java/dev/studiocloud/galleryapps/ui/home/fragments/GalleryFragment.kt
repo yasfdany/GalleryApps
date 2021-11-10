@@ -24,8 +24,8 @@ class GalleryFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        var view : View = inflater.inflate(R.layout.gallery_fragment,container,false)
+    ): View {
+        val view : View = inflater.inflate(R.layout.gallery_fragment,container,false)
 
         galleryAdapter = GalleryAdapter(requireContext(),galleries)
         view.rvGallery.layoutManager = GridLayoutManager(requireContext(), 3)

@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_splashscreen.*
 import dev.studiocloud.galleryapps.R
 import dev.studiocloud.galleryapps.ui.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_splashscreen.*
 import java.util.*
 import kotlin.concurrent.schedule
 

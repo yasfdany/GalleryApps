@@ -1,16 +1,10 @@
 package dev.studiocloud.galleryapps.data.services
 
-import retrofit2.converter.gson.GsonConverterFactory
-
-import retrofit2.Retrofit
-
 import com.google.gson.GsonBuilder
-
-import com.google.gson.Gson
-import dev.studiocloud.galleryapps.BuildConfig
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 

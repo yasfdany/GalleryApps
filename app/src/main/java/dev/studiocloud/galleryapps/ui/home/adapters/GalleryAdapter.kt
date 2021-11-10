@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import dev.studiocloud.galleryapps.R
 import dev.studiocloud.galleryapps.data.services.responses.GalleryItem
 import kotlinx.android.synthetic.main.item_gallery.view.*
@@ -17,8 +15,8 @@ interface OnClickGalleryListener{
     fun onClickGallery(gallery : GalleryItem)
 }
 
-class GalleryAdapter(var context: Context, var data: MutableList<GalleryItem>) : RecyclerView.Adapter<GalleryAdapter.Holder>() {
-    private var onClickListener : OnClickGalleryListener? = null;
+class GalleryAdapter(private var context: Context, var data: MutableList<GalleryItem>) : RecyclerView.Adapter<GalleryAdapter.Holder>() {
+    private var onClickListener : OnClickGalleryListener? = null
 
     fun setOnClickGallery(onClickListener : OnClickGalleryListener){
         this.onClickListener = onClickListener
@@ -47,8 +45,6 @@ class GalleryAdapter(var context: Context, var data: MutableList<GalleryItem>) :
     }
 
     class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-        }
     }
 
 }

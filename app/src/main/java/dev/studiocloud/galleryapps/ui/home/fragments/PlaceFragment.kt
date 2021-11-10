@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import dev.studiocloud.galleryapps.R
-import dev.studiocloud.galleryapps.data.viewModels.PlaceViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
+import dev.studiocloud.galleryapps.R
 import dev.studiocloud.galleryapps.data.services.responses.PlaceItem
+import dev.studiocloud.galleryapps.data.viewModels.PlaceViewModel
 import dev.studiocloud.galleryapps.ui.home.adapters.OnClickPlaceListener
 import dev.studiocloud.galleryapps.ui.home.adapters.PlaceAdapter
 import dev.studiocloud.galleryapps.utils.RecyclerViewPaddingDecoration
@@ -26,10 +26,10 @@ class PlaceFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view : View = inflater.inflate(R.layout.place_fragment,container,false)
 
-        placeAdapter = PlaceAdapter(requireContext(),places);
+        placeAdapter = PlaceAdapter(requireContext(),places)
         view.rvPlace.layoutManager = LinearLayoutManager(requireContext())
         view.rvPlace.adapter = placeAdapter
         view.rvPlace.addItemDecoration(RecyclerViewPaddingDecoration(56))

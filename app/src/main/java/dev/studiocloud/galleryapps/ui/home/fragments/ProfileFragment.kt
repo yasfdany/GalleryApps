@@ -1,7 +1,6 @@
 package dev.studiocloud.galleryapps.ui.home.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view : View = inflater.inflate(R.layout.profile_fragment,container,false)
         userViewModel = ViewModelProvider(requireActivity())[UserViewModel::class.java]
 

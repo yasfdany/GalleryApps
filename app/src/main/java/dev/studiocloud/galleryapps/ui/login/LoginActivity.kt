@@ -8,9 +8,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import kotlinx.android.synthetic.main.activity_login.*
 import dev.studiocloud.galleryapps.R
 import dev.studiocloud.galleryapps.ui.home.HomeActivity
+import kotlinx.android.synthetic.main.activity_login.*
 import java.util.*
 import kotlin.concurrent.schedule
 
@@ -23,9 +23,9 @@ class LoginActivity : AppCompatActivity() {
 
         etEmail.addTextChangedListener {
             if(it.toString().isValidEmail() && it.toString().isNotEmpty()){
-                tvEmailError.visibility = View.GONE ;
+                tvEmailError.visibility = View.GONE
             } else {
-                tvEmailError.visibility = View.VISIBLE;
+                tvEmailError.visibility = View.VISIBLE
             }
 
             isButtonEnable(it.toString(),etPassword.text.toString())
@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btLogin.setOnClickListener {
-            var progressDialog = createDialog()
+            val progressDialog = createDialog()
             progressDialog.show()
             Timer().schedule(3000){
                 progressDialog.dismiss()
@@ -46,13 +46,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun createDialog(): Dialog {
-        var builder: AlertDialog.Builder = AlertDialog.Builder(this)
+        val builder: AlertDialog.Builder = AlertDialog.Builder(this)
         builder.setView(R.layout.progress_layout)
         return builder.create()
     }
 
     private fun isButtonEnable(email : String, password: String){
-        btLogin.isEnabled =  email.isValidEmail() && email.isNotEmpty() && password.isNotEmpty();
+        btLogin.isEnabled =  email.isValidEmail() && email.isNotEmpty() && password.isNotEmpty()
         if (btLogin.isEnabled){
             btLogin.setBackgroundColor(resources.getColor(R.color.purple_500))
         } else {

@@ -1,12 +1,10 @@
 package dev.studiocloud.galleryapps.data.viewModels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import dev.studiocloud.galleryapps.data.services.responses.PlaceItem
 import dev.studiocloud.galleryapps.data.services.ApiClient
-
 import dev.studiocloud.galleryapps.data.services.ApiService
+import dev.studiocloud.galleryapps.data.services.responses.PlaceItem
 import dev.studiocloud.galleryapps.data.services.responses.PlaceResponse
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,7 +1,7 @@
 package dev.studiocloud.galleryapps.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -69,7 +69,7 @@ class HomeActivity : AppCompatActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                bottomNavMain.menu.getItem(position).isChecked = true;
+                bottomNavMain.menu.getItem(position).isChecked = true
                 when(position){
                     0 -> tvPageTitle.text = "Place"
                     1 -> tvPageTitle.text = "Gallery"
