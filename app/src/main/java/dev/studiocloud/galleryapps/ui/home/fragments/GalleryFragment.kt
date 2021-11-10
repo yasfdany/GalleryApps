@@ -42,6 +42,8 @@ class GalleryFragment : Fragment() {
                 galleries.clear()
                 galleries.addAll(it)
                 galleryAdapter.notifyDataSetChanged()
+
+                view.viewGalleryNotFound.visibility = if(galleries.isEmpty()) View.VISIBLE else View.GONE
             }
         })
 

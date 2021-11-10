@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FullScreen">
         <activity
-            android:name=".ui.home.HomeActivity"
+            android:name=".ui.splashscreen.SplashscreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.splashscreen.SplashscreenActivity"/>
+            android:windowSoftInputMode="adjustNothing"
+            android:name=".ui.home.HomeActivity"/>
         <activity
             android:name=".ui.login.LoginActivity"/>
     </application>

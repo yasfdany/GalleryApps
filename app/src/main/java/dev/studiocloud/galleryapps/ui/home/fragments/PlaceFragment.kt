@@ -48,6 +48,8 @@ class PlaceFragment : Fragment() {
                 places.clear()
                 places.addAll(it)
                 placeAdapter.notifyDataSetChanged()
+
+                view.viewNotFound.visibility = if(places.isEmpty()) View.VISIBLE else View.GONE
             }
         })
 

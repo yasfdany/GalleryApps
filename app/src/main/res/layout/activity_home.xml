@@ -8,6 +8,7 @@
     android:background="@color/white">
 
     <LinearLayout
+        android:background="@color/white"
         android:gravity="center"
         android:elevation="1dp"
         android:layout_width="match_parent"
