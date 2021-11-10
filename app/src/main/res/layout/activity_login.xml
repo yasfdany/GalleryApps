@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:text="Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:textColor="@color/black"
+        android:layout_marginTop="32dp"
+        android:padding="16dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/rounded_border"
+        android:layout_width="300dp"
+        android:maxLines="1"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/tvEmailError"
+        android:visibility="gone"
+        android:layout_marginTop="6dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="#ff0000"
+            android:textSize="12sp"
+            android:text="Email tidak valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:textColor="@color/black"
+        android:layout_marginTop="14dp"
+        android:padding="16dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/rounded_border"
+        android:maxLines="1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:textColor="@color/white"
+        android:layout_marginTop="18dp"
+        android:padding="16dp"
+        android:textAllCaps="false"
+        android:text="Login"
+        android:textSize="16sp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
