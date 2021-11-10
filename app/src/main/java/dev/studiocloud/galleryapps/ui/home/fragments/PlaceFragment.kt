@@ -45,11 +45,7 @@ class PlaceFragment : Fragment() {
             }
         )
 
-        placeViewModel = ViewModelProvider.AndroidViewModelFactory(activity?.application!!).create(
-            PlaceViewModel::class.java
-        )
-
-        placeViewModel.getPlaces(null)
+        placeViewModel = ViewModelProvider(requireActivity())[PlaceViewModel::class.java]
         placeViewModel.searchResult.observe(viewLifecycleOwner, {
             if(it != null){
                 places.clear()

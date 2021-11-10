@@ -30,9 +30,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        placeViewModel = ViewModelProvider.AndroidViewModelFactory(application!!).create(
-            PlaceViewModel::class.java
-        )
+        placeViewModel = ViewModelProvider(this)[PlaceViewModel::class.java]
+        placeViewModel.getPlaces(null)
 
         bottomNavMain.setOnItemSelectedListener {
             when(it.itemId){
